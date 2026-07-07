@@ -83,7 +83,7 @@
 /* Run time and task stats gathering related definitions. */
 #define configGENERATE_RUN_TIME_STATS           0
 #define configUSE_TRACE_FACILITY                1
-#define configUSE_STATS_FORMATTING_FUNCTIONS    0
+// #define configUSE_STATS_FORMATTING_FUNCTIONS    0
 
 /* Co-routine related definitions. */
 #define configUSE_CO_ROUTINES                   0
@@ -150,6 +150,15 @@ to exclude the API function. */
 #define configENABLE_FPU                        1
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY    16
 #endif
+
+
+// FreeRTOS CLI configurations
+#define configCOMMAND_INT_MAX_OUTPUT_SIZE 256
+#define configMAX_TASK_NAME_LEN 16
+
+// ps (might need more later)
+#define configUSE_TRACE_FACILITY 1 
+#define configUSE_STATS_FORMATTING_FUNCTIONS 1
 
 /* A header file that defines trace macro can be included here. */
 
