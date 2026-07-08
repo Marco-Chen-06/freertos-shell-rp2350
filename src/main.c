@@ -51,6 +51,10 @@ void vHelloTask(void *pvParameters) {
 
 void vShellTask(void *pvParameters) {
 	shell_init();
+
+	shell_execute();
+	
+	// shell_execute contains a infinite loop so we shouldn't reach here
 	for (;;) {
 		// idk :0
 	}
