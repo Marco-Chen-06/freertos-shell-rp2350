@@ -1,3 +1,8 @@
+/*
+ * shell.h
+ * Handles the creation of a FreeRTOS shell task
+*/
+
 #ifndef SHELL_H
 #define SHELL_H
 
@@ -8,6 +13,7 @@
 #include "task.h"
 #include "queue.h"
 #include "FreeRTOS_CLI.h"
+#include "commands.h"
 
 #include "hardware/uart.h"
 #include "hardware/irq.h"
