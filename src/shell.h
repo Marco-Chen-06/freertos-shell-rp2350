@@ -25,7 +25,7 @@
 #define UART_BAUDRATE 115200
 
 #define SHELL_INPUT_BUF_LEN 64 // max input length
-#define SHELL_RECV_QUEUE_LEN 128 // max output length
+#define SHELL_RECV_QUEUE_LEN 256 // max output length
 
 void uart_rx_handler();
 
