@@ -3,7 +3,8 @@
 QueueHandle_t xRecvQueue;
 static uint8_t inputBuf[SHELL_INPUT_BUF_LEN];
 static uint8_t *inputBufPtr;
-static uint8_t outputBuf[configCOMMAND_INT_MAX_OUTPUT_SIZE];
+static uint8_t outputBuf[SHELL_RECV_QUEUE_LEN];
+const char commandPrompt[] = "\033[1;32mshell# \033[0m";
 
 void uart_rx_handler() {
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
@@ -55,6 +56,7 @@ void shell_execute() {
             // command is complete. Clear the input string ready to receive the next command.
             inputIndex = 0;
             memset(inputBuf, 0x00, SHELL_INPUT_BUF_LEN);
+            printf("%s", commandPrompt);
         } else {
             if (ch == '\r') {
                 // ignore carriage returns
@@ -63,6 +65,7 @@ void shell_execute() {
                 if (inputIndex > 0) {
                     inputIndex--;
                     inputBuf[inputIndex] = '\0';
+                    printf("\b \b"); // device echo of removing a character 
                 }
             } else {
                 // some character was entered that was not a newline, backspace, or carriage return.
@@ -70,6 +73,7 @@ void shell_execute() {
                 if (inputIndex < SHELL_INPUT_BUF_LEN) {
                     inputBuf[inputIndex] = ch;
                     inputIndex++;
+                    printf("%c", ch); // device echo back to the terminal emulator
                 }
             }
         }

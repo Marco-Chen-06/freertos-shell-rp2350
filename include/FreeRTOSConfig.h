@@ -156,7 +156,7 @@ to exclude the API function. */
 #define configCOMMAND_INT_MAX_OUTPUT_SIZE 256
 #define configMAX_TASK_NAME_LEN 16
 
-// ps (might need more later)
+// necessary for vTaskList (ps)
 #define configUSE_TRACE_FACILITY 1 
 #define configUSE_STATS_FORMATTING_FUNCTIONS 1
 

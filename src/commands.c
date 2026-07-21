@@ -5,7 +5,7 @@ static BaseType_t prvCmdPs(char *pcWriteBuffer, size_t xWriteBufferLen, const ch
 
 const CLI_Command_Definition_t xCmdPs = {
     "ps",
-    "ps: prints formatted data of all tasks \r\n",
+    "\r\nps:\r\n Prints formatted data of all tasks\r\n\r\n",
     prvCmdPs,
     0
 };
