@@ -8,3 +8,9 @@ break main
 continue
 tui enable
 
+define flash
+mon reset halt
+mon resume
+detach
+quit
+
