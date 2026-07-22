@@ -17,8 +17,8 @@ int main() {
 	gpio_init(LED_PIN);
 	gpio_set_dir(LED_PIN, GPIO_OUT);
 
-	xTaskCreate(vBlinkTask, "vBlinkTask", 256, NULL, 1, NULL);
-	xTaskCreate(vHelloTask, "vHelloTask", 512, NULL, 1, NULL);
+	xTaskCreate(vBlinkTask, "vBlinkTask", 256, NULL, 5, NULL);
+	xTaskCreate(vHelloTask, "vHelloTask", 512, NULL, 5, NULL);
 	xTaskCreate(vShellTask, "vShellTask", 512, NULL, 1, NULL);
 
 	vTaskStartScheduler();
