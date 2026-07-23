@@ -33,7 +33,7 @@ void shell_init() {
     // initialize commands
     register_commands();
 
-    printf("welcome to rp2350 freertos shell \r\n");
+    printf("welcome to rp2350 freertos shell \r\n\r\n");
     printf("%s", commandPrompt);
 }
 
