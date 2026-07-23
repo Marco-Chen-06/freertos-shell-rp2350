@@ -20,6 +20,8 @@ set(PICO_DEOPTIMIZED_DEBUG 1)
 add_executable(shell
     src/main.c
     src/FreeRTOS_CLI.c
+    src/shell.c
+    src/commands.c
 )
 
 target_link_libraries(shell
