@@ -8,6 +8,7 @@
 #include "task.h"
 #include "queue.h"
 #include "FreeRTOS_CLI.h"
+#include "hardware/watchdog.h"
 
 void register_commands(void);
 #endif
