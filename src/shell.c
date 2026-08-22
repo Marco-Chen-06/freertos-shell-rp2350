@@ -10,6 +10,7 @@ void uart_rx_handler() {
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
     while (uart_is_readable(UART_PERI)) {
         uint8_t ch = uart_getc(UART_PERI);
+        // TODO: in future versions, take note of xQueueSendFromISR's return value.
         xQueueSendFromISR(xRecvQueue, &ch, &xHigherPriorityTaskWoken);
     }
     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
@@ -40,7 +41,7 @@ void shell_init() {
 void shell_execute() {
     BaseType_t xMoreDataToFollow;
     char ch = 0;
-    char inputIndex = 0;
+    uint16_t inputIndex = 0;
 
     for (;;) {
         // wait in blocked state until a character is received by the queue
