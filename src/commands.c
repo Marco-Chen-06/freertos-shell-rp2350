@@ -37,6 +37,11 @@ const CLI_Command_Definition_t xCmdSetPriority = {
 static BaseType_t prvCmdPs(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString) {
     const char *header = "Name          State   Priority  Stack  Num\r\n";
     strcpy(pcWriteBuffer, header);
+    /* 
+     * Freertos documentation says a fair approximatation is that each task is 40 bytes.
+     * There is no overflow detection in this code implementation, so in the case of ps failing,
+     * increase the size of SHELL_OUTPUT_BUF_LEN in shell.h according to the 40 byte task metric
+     */
     vTaskList(pcWriteBuffer + strlen(header));
     strcat(pcWriteBuffer, "\r\n");
     // return pdFalse to indicate completed execution
